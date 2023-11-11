@@ -1,0 +1,13 @@
+type,name,price
+appetizer,양송이수프,6000
+appetizer,타파스,5500
+appetizer,시저샐러드,8000
+beverage,제로콜라,3000
+beverage,레드와인,60000
+beverage,샴페인,25000
+dessert,초코케이크,15000
+dessert,아이스크림,5000
+main,티본스테이크,55000
+main,바비큐립,54000
+main,해산물파스타,35000
+main,크리스마스파스타,25000
