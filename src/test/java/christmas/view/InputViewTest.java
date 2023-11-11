@@ -33,6 +33,15 @@ public class InputViewTest {
                 .isThrownBy(InputView::readDate);
     }
 
+    @DisplayName("[Exception] 입력한 날짜가 1~31이 아니면 예외가 발생한다.")
+    @ParameterizedTest
+    @ValueSource(strings = {"-1", "0", "32"})
+    void getDateByOutOfBound(String input) {
+        command(input);
+        assertThatIllegalArgumentException()
+                .isThrownBy(InputView::readDate);
+    }
+
     private void command(final String... args) {
         final byte[] buf = String.join("\n", args).getBytes();
         System.setIn(new ByteArrayInputStream(buf));
