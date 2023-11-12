@@ -14,7 +14,11 @@ public class Menu {
     }
 
     public String getName() {
-        return this.name;
+        return name;
+    }
+
+    public int getPrice() {
+        return price;
     }
 
     public boolean isSameName(String name) {

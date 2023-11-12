@@ -24,6 +24,7 @@ public class RestaurantController {
         date = InputView.readDate();
         orders = getOrders();
         OutputView.printEventSubject(date, orders.getOrderMenus());
+        OutputView.printOriginalPrice(orders.getTotalPrice());
     }
 
     private Menus getMenus() {

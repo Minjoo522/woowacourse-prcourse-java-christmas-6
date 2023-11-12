@@ -19,6 +19,12 @@ public class Orders {
                 .collect(Collectors.toList());
     }
 
+    public int getTotalPrice() {
+        return orders.stream()
+                .mapToInt(Order::getPrice)
+                .sum();
+    }
+
     private void validate(List<Order> orders) {
         validateTotalQuantity(orders);
         validateNotOnlyBeverage(orders);
@@ -35,7 +41,7 @@ public class Orders {
 
     private void validateNotOnlyBeverage(List<Order> orders) {
         boolean hasOnlyBeverage = orders.stream()
-                .anyMatch(Order::isBeverage);
+                .allMatch(Order::isBeverage);
         if (hasOnlyBeverage) {
             throw new IllegalArgumentException();
         }

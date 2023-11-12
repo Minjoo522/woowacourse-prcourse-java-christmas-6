@@ -14,6 +14,10 @@ public class Order {
         return String.format("%s %d개", menu.getName(), quantity);
     }
 
+    public int getPrice() {
+        return menu.getPrice() * quantity;
+    }
+
     public int getQuantity() {
         return this.quantity;
     }

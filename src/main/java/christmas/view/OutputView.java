@@ -2,6 +2,7 @@ package christmas.view;
 
 import static christmas.view.constant.Message.NOTICE_EVENT_SUBJECT;
 import static christmas.view.constant.Message.NOTICE_ORDER_MENU;
+import static christmas.view.constant.Message.NOTICE_ORIGINAL_PRICE;
 
 import christmas.view.constant.Message;
 import java.util.List;
@@ -16,7 +17,14 @@ public class OutputView {
         printEmptyLine();
         printMessage(NOTICE_ORDER_MENU);
         printIterableMessage(messsages);
+        printEmptyLine();
     }
+
+    public static void printOriginalPrice(int price) {
+        printDynamicMessage(NOTICE_ORIGINAL_PRICE, price);
+        printEmptyLine();
+    }
+
     private static void printMessage(Message message) {
         System.out.println(message.getMessage());
     }
