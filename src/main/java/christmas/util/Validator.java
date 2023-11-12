@@ -1,5 +1,8 @@
 package christmas.util;
 
+import christmas.service.Parser;
+import java.util.List;
+
 public class Validator {
     private Validator() {
         // 인스턴스 생성 방지용
@@ -19,5 +22,24 @@ public class Validator {
         if (input == null || input.trim().isEmpty()) {
             throw new IllegalArgumentException();
         }
+    }
+
+    public static void validateNotDuplicate(List<String> names) {
+        if (isDuplicated(names)) {
+            throw new IllegalArgumentException();
+        }
+    }
+
+    public static void validateSize(String[] parts) {
+        if (parts.length != 2) {
+            throw new IllegalArgumentException();
+        }
+    }
+
+    private static boolean isDuplicated(List<String> names) {
+        long uniqueName = names.stream()
+                .distinct()
+                .count();
+        return uniqueName < names.size();
     }
 }

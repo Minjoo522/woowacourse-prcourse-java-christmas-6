@@ -1,7 +1,6 @@
 package christmas.service;
 
 import christmas.domain.Menu;
-import christmas.util.Parser;
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.FileReader;

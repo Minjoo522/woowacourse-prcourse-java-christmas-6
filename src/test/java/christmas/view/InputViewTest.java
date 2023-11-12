@@ -15,7 +15,7 @@ public class InputViewTest {
         Console.close();
     }
 
-    @DisplayName("[Exception] 입력한 내용이 공백이면 예외가 발생한다.")
+    @DisplayName("[Exception] 입력한 날짜가 공백이면 예외가 발생한다.")
     @ParameterizedTest
     @ValueSource(strings = {" ", "  ", "\t", "\n"})
     void getDateByNull(String input) {
@@ -24,7 +24,7 @@ public class InputViewTest {
                 .isThrownBy(InputView::readDate);
     }
 
-    @DisplayName("[Exception] 입력한 내용이 숫자로 변경할 수 없는 값이면 예외가 발생한다.")
+    @DisplayName("[Exception] 입력한 날짜가 숫자로 변경할 수 없는 값이면 예외가 발생한다.")
     @ParameterizedTest
     @ValueSource(strings = {"a", "b", "1,2,3"})
     void getDateByNotNumber(String input) {
@@ -40,6 +40,15 @@ public class InputViewTest {
         command(input);
         assertThatIllegalArgumentException()
                 .isThrownBy(InputView::readDate);
+    }
+
+    @DisplayName("[Exception] 입력한 주문 메뉴가 공백이면 예외가 발생한다.")
+    @ParameterizedTest
+    @ValueSource(strings = {" ", "  ", "\t", "\n"})
+    void getOrdersByNull(String input) {
+        command(input);
+        assertThatIllegalArgumentException()
+                .isThrownBy(InputView::readOrder);
     }
 
     private void command(final String... args) {

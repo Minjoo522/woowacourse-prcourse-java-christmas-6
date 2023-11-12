@@ -1,6 +1,6 @@
 package christmas.domain;
 
-import christmas.util.Parser;
+import christmas.service.Parser;
 
 public class Menu {
     private final String type;
@@ -11,5 +11,13 @@ public class Menu {
         this.type = type;
         this.name = name;
         this.price = Parser.stringParseInt(price);
+    }
+
+    public boolean isSameName(String name) {
+        return this.name.equals(name);
+    }
+
+    public boolean isSameType(String type) {
+        return this.type.equals(type);
     }
 }
