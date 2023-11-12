@@ -10,6 +10,7 @@ import christmas.service.Parser;
 import christmas.service.CSVReader;
 import christmas.util.Validator;
 import christmas.view.InputView;
+import christmas.view.OutputView;
 import java.util.List;
 
 public class RestaurantController {
@@ -22,6 +23,7 @@ public class RestaurantController {
         InputView.printGreeting();
         date = InputView.readDate();
         orders = getOrders();
+        OutputView.printEventSubject(date, orders.getOrderMenus());
     }
 
     private Menus getMenus() {

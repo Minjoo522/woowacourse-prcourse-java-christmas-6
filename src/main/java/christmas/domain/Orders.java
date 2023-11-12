@@ -1,6 +1,7 @@
 package christmas.domain;
 
 import java.util.List;
+import java.util.stream.Collectors;
 
 public class Orders {
     private final int date;
@@ -10,6 +11,12 @@ public class Orders {
         validate(orders);
         this.date = date;
         this.orders = orders;
+    }
+
+    public List<String> getOrderMenus() {
+        return orders.stream()
+                .map(Order::getNameAndQuantity)
+                .collect(Collectors.toList());
     }
 
     private void validate(List<Order> orders) {

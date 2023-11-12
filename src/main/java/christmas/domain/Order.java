@@ -10,6 +10,10 @@ public class Order {
         this.quantity = quantity;
     }
 
+    public String getNameAndQuantity() {
+        return String.format("%s %d개", menu.getName(), quantity);
+    }
+
     public int getQuantity() {
         return this.quantity;
     }

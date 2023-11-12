@@ -13,6 +13,10 @@ public class Menu {
         this.price = Parser.stringParseInt(price);
     }
 
+    public String getName() {
+        return this.name;
+    }
+
     public boolean isSameName(String name) {
         return this.name.equals(name);
     }
