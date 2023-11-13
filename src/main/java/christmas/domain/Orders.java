@@ -2,6 +2,8 @@ package christmas.domain;
 
 import java.util.List;
 import java.util.stream.Collectors;
+import java.time.DayOfWeek;
+import java.time.LocalDate;
 
 public class Orders {
     private final int date;
@@ -23,6 +25,46 @@ public class Orders {
         return orders.stream()
                 .mapToInt(Order::getPrice)
                 .sum();
+    }
+
+    public boolean isInRange(int start, int end) {
+        return date >= start && date <= end;
+    }
+
+    public int calculateDiscountByDate(int price) {
+        return price * (date - 1);
+    }
+
+    public boolean isWeekend() {
+        DayOfWeek dayOfWeek = getDayOfWeek();
+        return dayOfWeek == DayOfWeek.FRIDAY || dayOfWeek == DayOfWeek.SATURDAY;
+    }
+
+    public boolean isWeekday() {
+        DayOfWeek dayOfWeek = getDayOfWeek();
+        return dayOfWeek != DayOfWeek.FRIDAY && dayOfWeek != DayOfWeek.SATURDAY;
+    }
+
+    public boolean isSameDate(List<Integer> days) {
+        return days.stream()
+                .anyMatch(d -> d == date);
+    }
+
+    public int calculateDessertCount() {
+        return orders.stream()
+                .mapToInt(Order::getDessertQuantity)
+                .sum();
+    }
+
+    public int calculateMainCount() {
+        return orders.stream()
+                .mapToInt(Order::getMainQuantity)
+                .sum();
+    }
+
+    private DayOfWeek getDayOfWeek() {
+        LocalDate orderDate = LocalDate.of(2023, 12, date);
+        return orderDate.getDayOfWeek();
     }
 
     private void validate(List<Order> orders) {

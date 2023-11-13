@@ -4,11 +4,11 @@ import static christmas.config.Config.MENU_CSV_PATH;
 
 import christmas.domain.Menu;
 import christmas.domain.Menus;
+import christmas.domain.Event;
 import christmas.domain.Order;
 import christmas.domain.Orders;
 import christmas.service.Parser;
 import christmas.service.CSVReader;
-import christmas.util.Validator;
 import christmas.view.InputView;
 import christmas.view.OutputView;
 import java.util.List;
@@ -25,6 +25,7 @@ public class RestaurantController {
         orders = getOrders();
         OutputView.printEventSubject(date, orders.getOrderMenus());
         OutputView.printOriginalPrice(orders.getTotalPrice());
+        getEvent();
     }
 
     private Menus getMenus() {
@@ -34,8 +35,14 @@ public class RestaurantController {
 
     private Orders getOrders() {
         List<String> input = InputView.readOrder();
-        Validator.validateNotDuplicate(input); // 여기서하면 안됨
         List<Order> orders = Parser.parseOrder(input, menus);
         return new Orders(date, orders);
+    }
+
+    private void getEvent() {
+        OutputView.printPresent(Event.getPresent(orders));
+        OutputView.printBenefits(Event.getBenefitDescription(orders));
+        OutputView.printDiscountPrice(Event.getDiscountPrice(orders));
+        OutputView.printFinalPrice(Event.getFinalPrice(orders));
     }
 }

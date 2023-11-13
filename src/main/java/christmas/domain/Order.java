@@ -26,6 +26,20 @@ public class Order {
         return menu.isSameType("beverage");
     }
 
+    public int getDessertQuantity() {
+        if (menu.isSameType("dessert")) {
+            return this.quantity;
+        }
+        return 0;
+    }
+
+    public int getMainQuantity() {
+        if (menu.isSameType("main")) {
+            return this.quantity;
+        }
+        return 0;
+    }
+
     private void validate(int quantity) {
         validateQuantity(quantity);
     }

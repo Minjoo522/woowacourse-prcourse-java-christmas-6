@@ -1,8 +1,12 @@
 package christmas.view;
 
-import static christmas.view.constant.Message.NOTICE_EVENT_SUBJECT;
 import static christmas.view.constant.Message.NOTICE_ORDER_MENU;
+import static christmas.view.constant.Message.NOTICE_EVENT_SUBJECT;
 import static christmas.view.constant.Message.NOTICE_ORIGINAL_PRICE;
+import static christmas.view.constant.Message.NOTICE_PRESENT_SUBJECT;
+import static christmas.view.constant.Message.NOTICE_BENEFITS_SUBJECT;
+import static christmas.view.constant.Message.NOTICE_FINAL_PRICE_SUBJECT;
+import static christmas.view.constant.Message.NOTICE_DISCOUNT_PRICE_SUBJECT;
 
 import christmas.view.constant.Message;
 import java.util.List;
@@ -22,6 +26,30 @@ public class OutputView {
 
     public static void printOriginalPrice(int price) {
         printDynamicMessage(NOTICE_ORIGINAL_PRICE, price);
+        printEmptyLine();
+    }
+
+    public static void printPresent(String result) {
+        printMessage(NOTICE_PRESENT_SUBJECT);
+        System.out.println(result);
+        printEmptyLine();
+    }
+
+    public static void printBenefits(String result) {
+        printMessage(NOTICE_BENEFITS_SUBJECT);
+        System.out.println(result);
+        printEmptyLine();
+    }
+
+    public static void printDiscountPrice(String result) {
+        printMessage(NOTICE_DISCOUNT_PRICE_SUBJECT);
+        System.out.println(result);
+        printEmptyLine();
+    }
+
+    public static void printFinalPrice(String result) {
+        printMessage(NOTICE_FINAL_PRICE_SUBJECT);
+        System.out.println(result);
         printEmptyLine();
     }
 
