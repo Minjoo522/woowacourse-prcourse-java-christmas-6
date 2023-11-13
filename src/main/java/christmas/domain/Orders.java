@@ -1,5 +1,6 @@
 package christmas.domain;
 
+import christmas.exception.EventException;
 import java.util.List;
 import java.util.stream.Collectors;
 import java.time.DayOfWeek;
@@ -72,20 +73,20 @@ public class Orders {
         validateNotOnlyBeverage(orders);
     }
 
-    private void validateTotalQuantity(List<Order> orders) {
+    private void validateTotalQuantity(List<Order> orders) throws EventException {
         int total = orders.stream()
                 .mapToInt(Order::getQuantity)
                 .sum();
         if (total > 20) {
-            throw new IllegalArgumentException();
+            throw new EventException();
         }
     }
 
-    private void validateNotOnlyBeverage(List<Order> orders) {
+    private void validateNotOnlyBeverage(List<Order> orders) throws EventException {
         boolean hasOnlyBeverage = orders.stream()
                 .allMatch(Order::isBeverage);
         if (hasOnlyBeverage) {
-            throw new IllegalArgumentException();
+            throw new EventException();
         }
     }
 }

@@ -2,6 +2,7 @@ package christmas.service;
 
 import christmas.domain.Menus;
 import christmas.domain.Order;
+import christmas.exception.EventException;
 import christmas.util.Validator;
 import java.util.List;
 import java.util.Arrays;
@@ -29,8 +30,8 @@ public class Parser {
     public static int stringParseInt(String input) throws IllegalArgumentException {
         try {
             return Integer.parseInt(input);
-        } catch (NumberFormatException e) {
-            throw new IllegalArgumentException();
+        } catch (NumberFormatException  e) {
+            throw new EventException();
         }
     }
 

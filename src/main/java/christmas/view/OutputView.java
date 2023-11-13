@@ -9,6 +9,8 @@ import static christmas.view.constant.Message.NOTICE_BENEFITS_SUBJECT;
 import static christmas.view.constant.Message.NOTICE_FINAL_PRICE_SUBJECT;
 import static christmas.view.constant.Message.NOTICE_DISCOUNT_PRICE_SUBJECT;
 
+import christmas.exception.EventException;
+import christmas.exception.ExceptionMessage;
 import christmas.view.constant.Message;
 import java.util.List;
 
@@ -74,5 +76,9 @@ public class OutputView {
 
     private static void printEmptyLine() {
         System.out.println();
+    }
+
+    public static void printErrorMessage(ExceptionMessage message) {
+        System.out.println(message.getMessage());
     }
 }

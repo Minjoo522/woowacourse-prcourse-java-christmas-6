@@ -1,5 +1,6 @@
 package christmas.domain;
 
+import christmas.exception.EventException;
 import java.util.List;
 
 public class Menus {
@@ -9,11 +10,11 @@ public class Menus {
         this.menus = menus;
     }
 
-    public Menu findMenuByName(String name) {
+    public Menu findMenuByName(String name) throws EventException {
         return menus.stream()
                 .filter(menu -> menu.isSameName(name))
                 .findFirst()
-                .orElseThrow(IllegalArgumentException::new);
+                .orElseThrow(EventException::new);
     }
 
     public boolean hasSameMenu(String name) {

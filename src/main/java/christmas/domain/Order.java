@@ -1,5 +1,7 @@
 package christmas.domain;
 
+import christmas.exception.EventException;
+
 public class Order {
     private final Menu menu;
     private final int quantity;
@@ -44,9 +46,9 @@ public class Order {
         validateQuantity(quantity);
     }
 
-    private void validateQuantity(int quantity) {
+    private void validateQuantity(int quantity) throws EventException {
         if (quantity < 1) {
-            throw new IllegalArgumentException();
+            throw new EventException();
         }
     }
 }
