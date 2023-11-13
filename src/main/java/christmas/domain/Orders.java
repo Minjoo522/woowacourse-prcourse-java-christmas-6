@@ -1,10 +1,10 @@
 package christmas.domain;
 
+import christmas.util.DateUtil;
 import christmas.exception.EventException;
 import java.util.List;
 import java.util.stream.Collectors;
 import java.time.DayOfWeek;
-import java.time.LocalDate;
 
 public class Orders {
     private final int date;
@@ -37,12 +37,12 @@ public class Orders {
     }
 
     public boolean isWeekend() {
-        DayOfWeek dayOfWeek = getDayOfWeek();
+        DayOfWeek dayOfWeek = DateUtil.getDayOfWeek(2023, 12, date);
         return dayOfWeek == DayOfWeek.FRIDAY || dayOfWeek == DayOfWeek.SATURDAY;
     }
 
     public boolean isWeekday() {
-        DayOfWeek dayOfWeek = getDayOfWeek();
+        DayOfWeek dayOfWeek = DateUtil.getDayOfWeek(2023, 12, date);
         return dayOfWeek != DayOfWeek.FRIDAY && dayOfWeek != DayOfWeek.SATURDAY;
     }
 
@@ -61,11 +61,6 @@ public class Orders {
         return orders.stream()
                 .mapToInt(Order::getMainQuantity)
                 .sum();
-    }
-
-    private DayOfWeek getDayOfWeek() {
-        LocalDate orderDate = LocalDate.of(2023, 12, date);
-        return orderDate.getDayOfWeek();
     }
 
     private void validate(List<Order> orders) {
