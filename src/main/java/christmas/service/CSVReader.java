@@ -1,6 +1,7 @@
 package christmas.service;
 
 import christmas.domain.Menu;
+import christmas.exception.EventException;
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.FileReader;
@@ -21,7 +22,7 @@ public class CSVReader {
                 menus.add(readMenu(line));
             }
         } catch (IOException e) {
-            throw new IllegalArgumentException();
+            throw new EventException();
         }
         return menus;
     }
@@ -29,7 +30,7 @@ public class CSVReader {
     private static Menu readMenu(String line) {
         List<String> parsedLine = Parser.splitByComma(line);
         if (parsedLine.size() < 3) {
-            throw new IllegalArgumentException();
+            throw new EventException();
         }
         return new Menu(parsedLine.get(0), parsedLine.get(1), parsedLine.get(2));
     }

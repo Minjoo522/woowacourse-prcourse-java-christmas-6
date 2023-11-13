@@ -3,6 +3,7 @@ package christmas.controller;
 import static christmas.config.Config.MENU_CSV_PATH;
 import static christmas.exception.ExceptionMessage.INVALID_DATE;
 import static christmas.exception.ExceptionMessage.INVALID_ORDER;
+import static christmas.exception.ExceptionMessage.SYSTEM_EXCEPTION;
 
 import christmas.domain.Menu;
 import christmas.domain.Menus;
@@ -36,7 +37,7 @@ public class RestaurantController {
                 menus = new Menus(newMenus);
                 return;
             } catch (EventException e) {
-                OutputView.printErrorMessage(INVALID_ORDER);
+                OutputView.printErrorMessage(SYSTEM_EXCEPTION);
             }
         }
     }
