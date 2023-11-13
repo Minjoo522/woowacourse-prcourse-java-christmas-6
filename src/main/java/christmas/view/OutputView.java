@@ -1,5 +1,6 @@
 package christmas.view;
 
+import static christmas.view.constant.Message.NOTICE_BADGE_SUBJECT;
 import static christmas.view.constant.Message.NOTICE_ORDER_MENU;
 import static christmas.view.constant.Message.NOTICE_EVENT_SUBJECT;
 import static christmas.view.constant.Message.NOTICE_ORIGINAL_PRICE;
@@ -51,6 +52,11 @@ public class OutputView {
         printMessage(NOTICE_FINAL_PRICE_SUBJECT);
         System.out.println(result);
         printEmptyLine();
+    }
+
+    public static void printBadge(String result) {
+        printMessage(NOTICE_BADGE_SUBJECT);
+        System.out.println(result);
     }
 
     private static void printMessage(Message message) {

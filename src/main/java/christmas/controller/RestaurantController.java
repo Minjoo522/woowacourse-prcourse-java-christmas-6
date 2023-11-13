@@ -7,6 +7,7 @@ import christmas.domain.Menus;
 import christmas.domain.Event;
 import christmas.domain.Order;
 import christmas.domain.Orders;
+import christmas.domain.EventBadge;
 import christmas.service.Parser;
 import christmas.service.CSVReader;
 import christmas.view.InputView;
@@ -20,7 +21,6 @@ public class RestaurantController {
 
     public void run() {
         menus = getMenus();
-        InputView.printGreeting();
         date = InputView.readDate();
         orders = getOrders();
         OutputView.printEventSubject(date, orders.getOrderMenus());
@@ -44,5 +44,6 @@ public class RestaurantController {
         OutputView.printBenefits(Event.getBenefitDescription(orders));
         OutputView.printDiscountPrice(Event.getDiscountPrice(orders));
         OutputView.printFinalPrice(Event.getFinalPrice(orders));
+        OutputView.printBadge(EventBadge.getEventBadge(orders));
     }
 }

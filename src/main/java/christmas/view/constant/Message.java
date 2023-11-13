@@ -10,7 +10,8 @@ public enum Message {
     NOTICE_PRESENT_SUBJECT("<증정 메뉴>"),
     NOTICE_BENEFITS_SUBJECT("<혜택 내역>"),
     NOTICE_DISCOUNT_PRICE_SUBJECT("<총혜택 금액>"),
-    NOTICE_FINAL_PRICE_SUBJECT("<할인 후 예상 결제 금액>");
+    NOTICE_FINAL_PRICE_SUBJECT("<할인 후 예상 결제 금액>"),
+    NOTICE_BADGE_SUBJECT("<12월 이벤트 배지>");
 
     private final String message;
 

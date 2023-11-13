@@ -14,11 +14,8 @@ public class InputView {
         // 인스턴스 생성 방지용
     }
 
-    public static void printGreeting() {
-        System.out.println(GREETING.getMessage());
-    }
-
     public static int readDate() {
+        System.out.println(GREETING.getMessage());
         System.out.println(ASK_EXPECTED_DATE.getMessage());
         String input = Console.readLine();
         return Validator.validateDate(input);

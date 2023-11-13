@@ -59,17 +59,17 @@ public enum Event {
         return "0원";
     }
 
-    private static boolean canGetBenefit(Orders orders) {
-        return orders.getTotalPrice() >= 10_000;
-    }
-
-    private static int calculateDiscountPrice(Orders orders) {
+    public static int calculateDiscountPrice(Orders orders) {
         if (canGetBenefit(orders)) {
             return Arrays.stream(Event.values())
                     .mapToInt(event -> event.calculateDiscount(orders))
                     .sum();
         }
         return 0;
+    }
+
+    private static boolean canGetBenefit(Orders orders) {
+        return orders.getTotalPrice() >= 10_000;
     }
 
     private static String joinBenefitDescription(Orders orders) {
