@@ -1,17 +1,15 @@
 package christmas.view;
 
-import static christmas.view.constant.Message.NOTICE_BADGE_SUBJECT;
-import static christmas.view.constant.Message.NOTICE_ORDER_MENU;
-import static christmas.view.constant.Message.NOTICE_EVENT_SUBJECT;
-import static christmas.view.constant.Message.NOTICE_ORIGINAL_PRICE;
-import static christmas.view.constant.Message.NOTICE_PRESENT_SUBJECT;
-import static christmas.view.constant.Message.NOTICE_BENEFITS_SUBJECT;
-import static christmas.view.constant.Message.NOTICE_FINAL_PRICE_SUBJECT;
-import static christmas.view.constant.Message.NOTICE_DISCOUNT_PRICE_SUBJECT;
+import static christmas.view.Message.NOTICE_BADGE_SUBJECT;
+import static christmas.view.Message.NOTICE_ORDER_MENU;
+import static christmas.view.Message.NOTICE_EVENT_SUBJECT;
+import static christmas.view.Message.NOTICE_ORIGINAL_PRICE;
+import static christmas.view.Message.NOTICE_PRESENT_SUBJECT;
+import static christmas.view.Message.NOTICE_BENEFITS_SUBJECT;
+import static christmas.view.Message.NOTICE_FINAL_PRICE_SUBJECT;
+import static christmas.view.Message.NOTICE_DISCOUNT_PRICE_SUBJECT;
 
-import christmas.exception.EventException;
 import christmas.exception.ExceptionMessage;
-import christmas.view.constant.Message;
 import java.util.List;
 
 public class OutputView {

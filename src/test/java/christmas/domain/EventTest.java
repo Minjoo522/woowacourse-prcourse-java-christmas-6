@@ -141,10 +141,11 @@ public class EventTest {
         orders.add(new Order(menus.findMenuByName("제로콜라"), 1));
 
         assertThat(Event.getBenefitDescription(new Orders(3, orders)))
-                .isEqualTo("크리스마스 디데이 할인: -1,200원\n"
-                        + "평일 할인: -4,046원\n"
-                        + "특별 할인: -1,000원\n"
-                        + "증정 이벤트: -25,000원");
+                .isEqualTo(String.join(System.lineSeparator(),
+                        "크리스마스 디데이 할인: -1,200원",
+                        "평일 할인: -4,046원",
+                        "특별 할인: -1,000원",
+                        "증정 이벤트: -25,000원"));
     }
 
     @DisplayName("[Success] 할인 받은 총 금액을 합산하여 리턴한다.")

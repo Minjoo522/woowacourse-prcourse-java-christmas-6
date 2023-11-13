@@ -104,7 +104,7 @@ public enum Event {
             return Arrays.stream(Event.values())
                     .map(event -> event.getDescription(orders))
                     .filter(Objects::nonNull)
-                    .collect(Collectors.joining("\n"));
+                    .collect(Collectors.joining(System.lineSeparator()));
         }
         return NOTHING;
     }

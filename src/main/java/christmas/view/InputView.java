@@ -1,8 +1,8 @@
 package christmas.view;
 
-import static christmas.view.constant.Message.ASK_EXPECTED_DATE;
-import static christmas.view.constant.Message.ASK_ORDER_MENU;
-import static christmas.view.constant.Message.GREETING;
+import static christmas.view.Message.ASK_EXPECTED_DATE;
+import static christmas.view.Message.ASK_ORDER_MENU;
+import static christmas.view.Message.GREETING;
 
 import camp.nextstep.edu.missionutils.Console;
 import christmas.util.Validator;
