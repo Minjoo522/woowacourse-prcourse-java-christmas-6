@@ -40,6 +40,7 @@ public enum Event {
         }
         return joinBenefitDescription(orders);
     }
+
     public static String getDiscountPrice(Orders orders) {
         if (calculateDiscountPrice(orders) == 0) {
             return "0원";
@@ -72,16 +73,6 @@ public enum Event {
         return orders.getTotalPrice() >= 10_000;
     }
 
-    private static String joinBenefitDescription(Orders orders) {
-        if (canGetBenefit(orders)) {
-            return Arrays.stream(Event.values())
-                    .map(event -> event.getDescription(orders))
-                    .filter(Objects::nonNull)
-                    .collect(Collectors.joining("\n"));
-        }
-        return NOTHING;
-    }
-
     private static boolean canGetChristmasDDayDiscount(Orders orders) {
         return orders.isInRange(1, 25);
     }
@@ -106,6 +97,16 @@ public enum Event {
 
     private static boolean canGetPresent(Orders orders) {
         return orders.getTotalPrice() >= 120_000 && canGetBenefit(orders);
+    }
+
+    private static String joinBenefitDescription(Orders orders) {
+        if (canGetBenefit(orders)) {
+            return Arrays.stream(Event.values())
+                    .map(event -> event.getDescription(orders))
+                    .filter(Objects::nonNull)
+                    .collect(Collectors.joining("\n"));
+        }
+        return NOTHING;
     }
 
     private String getDescription(Orders orders) {
