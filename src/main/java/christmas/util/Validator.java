@@ -12,7 +12,6 @@ public class Validator {
     public static int validateDate(String input) throws EventException {
         validateNotNull(input);
         int date = Parser.stringParseInt(input);
-        // TODO: 하드코딩된 값 변경하기
         if (date < 1 || date > 31) {
             throw new EventException();
         }
