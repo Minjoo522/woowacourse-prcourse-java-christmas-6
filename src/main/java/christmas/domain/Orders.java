@@ -46,9 +46,9 @@ public class Orders {
         return dayOfWeek != DayOfWeek.FRIDAY && dayOfWeek != DayOfWeek.SATURDAY;
     }
 
-    public boolean isSameDate(List<Integer> days) {
-        return days.stream()
-                .anyMatch(d -> d == date);
+    public boolean isSameDate(List<Integer> dates) {
+        return dates.stream()
+                .anyMatch(date -> date == this.date);
     }
 
     public int calculateDessertCount() {
